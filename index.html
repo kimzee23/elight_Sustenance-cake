@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Delight Sustenance | Artisanal Cakes & Treats</title>
+
+  <!-- Google Fonts + Enhanced Font Pairing -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0a0a0a;
+      color: #fef3e2;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* RESTAURANT BACKGROUND – warm, subtle food ambiance with soft overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      filter: brightness(0.4) contrast(1.1);
+      z-index: -2;
+    }
+
+    /* Additional warm gradient overlay for depth */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+      z-index: -1;
+    }
+
+    /* Glassmorphism card effect with soft restaurant vibe */
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background: rgba(15, 12, 8, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 2rem 1.8rem 2.2rem;
+      text-align: center;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.4), 0 0 0 1px rgba(212, 175, 55, 0.2);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .container:hover {
+      transform: scale(1.01);
+    }
+
+    /* Logo & Branding */
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #f9e0a0, #d4af37);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #e9d29f;
+      word-spacing: 2px;
+      margin-bottom: 1.8rem;
+      border-bottom: 1px dashed rgba(212, 175, 55, 0.5);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    /* culinary details row (tiny restaurant accent) */
+    .restaurant-badge {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #f0e0b0;
+      flex-wrap: wrap;
+    }
+
+    .restaurant-badge span i {
+      margin-right: 5px;
+      color: #d4af37;
+    }
+
+    /* Links (menu buttons) */
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: 14px 18px;
+      margin: 14px 0;
+      border-radius: 60px;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      background: rgba(20, 18, 16, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #fff4e0;
+      letter-spacing: 0.3px;
+    }
+
+    .link i {
+      font-size: 1.3rem;
+      transition: transform 0.2s;
+    }
+
+    .link:hover {
+      background: #d4af37;
+      color: #0a0a0a;
+      border-color: #d4af37;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -8px rgba(0,0,0,0.5);
+    }
+
+    .link:hover i {
+      transform: scale(1.08);
+      color: #0a0a0a;
+    }
+
+    /* whatsapp special glow */
+    .whatsapp {
+      background: rgba(37, 211, 102, 0.2);
+      border-left: 4px solid #25D366;
+      font-weight: 700;
+    }
+
+    .whatsapp i {
+      color: #25D366;
+    }
+
+    .whatsapp:hover {
+      background: #25D366;
+      border-left: 4px solid #ffffff;
+    }
+
+    .whatsapp:hover i {
+      color: #0a0a0a;
+    }
+
+    /* elegant footer */
+    .footer {
+      margin-top: 32px;
+      font-size: 0.7rem;
+      color: #cfc5a5;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+      padding-top: 18px;
+      line-height: 1.5;
+      letter-spacing: 0.3px;
+    }
+
+    .footer i {
+      color: #d4af37;
+      font-size: 0.7rem;
+    }
+
+    /* decorative little spark */
+    .delivery-note {
+      background: rgba(0,0,0,0.5);
+      display: inline-block;
+      border-radius: 50px;
+      padding: 5px 14px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      margin-bottom: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.6rem 1.2rem;
+      }
+      .logo {
+        font-size: 1.9rem;
+      }
+      .link {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Main Brand -->
+  <div class="logo">Delight Sustenance</div>
+  <div class="subtitle">CAKES • TREATS • DELIGHTS</div>
+
+  <!-- restaurant vibe: mini info (like fresh bakes, local cuisine) -->
+  <div class="restaurant-badge">
+      <span><i class="fas fa-utensils"></i> Local delicacy</span>
+    <span><i class="fas fa-cake-candles"></i> Custom Cakes and Fresh Pastries</span>
+    <span><i class="fas fa-truck-fast"></i> Same-day delivery</span>
+  </div>
+
+  <!-- Small fresh note -->
+  <div class="delivery-note">
+    <i class="fas fa-star-of-life"></i> 100% handmade • premium ingredients <i class="fas fa-star-of-life"></i>
+  </div>
+
+  <!-- WhatsApp main CTA with better icon & text -->
+  <a class="link whatsapp" href="https://wa.me/2349073198122?text=Hello%20I%20want%20to%20order%20from%20Delight%20Sustenance">
+    <i class="fab fa-whatsapp"></i> Order on WhatsApp
+  </a>
+
+  <!-- Call -->
+  <a class="link" href="tel:+2349073198122">
+    <i class="fas fa-phone-alt"></i> Call Us
+  </a>
+
+  <!-- Instagram -->
+  <a class="link" href="https://instagram.com/delight_sustenance" target="_blank">
+    <i class="fab fa-instagram"></i> Follow on Instagram
+  </a>
+
+  <!-- TikTok -->
+  <a class="link" href="https://tiktok.com/@delight_sustenance_cake" target="_blank">
+    <i class="fab fa-tiktok"></i> Watch on TikTok
+  </a>
+
+  <!-- extra flavor : menu preview? optional charm -->
+  <div class="footer">
+   </i> Powered by Gazar Technology <i class="fas fa-mug-hot"></i><br>
+    Open for Orders Daily • 9AM – 9PM<br>
+    <span style="font-size:0.65rem;">📍 Oshodi Isolo, Ago,Lagos State </span>
+  </div>
+</div>
+
+</body>
+</html>
